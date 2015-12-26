@@ -1,0 +1,71 @@
+I"(function() {
+  var count, countdowns, display, resume, running, start, stop, tick;
+
+  count = void 0;
+
+  tick = null;
+
+  running = false;
+
+  display = function() {
+    var hr, hr_zero, micro, micro_zero, min, min_zero, sec, sec_zero;
+    micro = count / 100;
+    sec = parseInt(micro % 60);
+    min = parseInt(micro / 60) % 60;
+    hr = parseInt(micro / 3600);
+    micro = count % 100;
+    hr_zero = '';
+    min_zero = '';
+    sec_zero = '';
+    micro_zero = '';
+    if (hr < 10) {
+      hr_zero = '0';
+    }
+    if (min < 10) {
+      min_zero = '0';
+    }
+    if (sec < 10) {
+      sec_zero = '0';
+    }
+    if (micro < 10) {
+      micro_zero = '0';
+    }
+    document.getElementById('hour').innerHTML = hr_zero + hr;
+    document.getElementById('minute').innerHTML = min_zero + min;
+    document.getElementById('second').innerHTML = sec_zero + sec;
+    document.getElementById('micro').innerHTML = micro_zero + micro;
+  };
+
+  countdowns = function() {
+    display();
+    count++;
+    tick = setTimeout('countdowns()', 10);
+  };
+
+  start = function() {
+    count = 0;
+    clearTimeout(tick);
+    running = true;
+    countdowns();
+  };
+
+  resume = function() {
+    if (tick !== null && !running) {
+      running = true;
+      countdowns();
+    }
+  };
+
+  stop = function() {
+    running = false;
+    clearTimeout(tick);
+  };
+
+  $(document).ready(function() {
+    document.getElementById('start').onclick = start;
+    document.getElementById('resume').onclick = resume;
+    document.getElementById('stop').onclick = stop;
+  });
+
+}).call(this);
+:ET

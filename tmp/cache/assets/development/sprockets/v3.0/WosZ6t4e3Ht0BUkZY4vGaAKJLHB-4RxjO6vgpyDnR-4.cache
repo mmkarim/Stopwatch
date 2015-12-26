@@ -1,0 +1,13 @@
+I"Ç(function() {
+  var start;
+
+  start = function() {
+    alert('Starting.. Boss :D');
+  };
+
+  $(document).ready(function() {
+    document.getElementById('start').onclick = start;
+  });
+
+}).call(this);
+:ET

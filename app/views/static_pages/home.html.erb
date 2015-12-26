@@ -1,0 +1,29 @@
+<div class="center">
+<h1><%= link_to "Redirect With Js", root_path, remote: true %></h1>
+</div>
+<br><br>
+<div class="pull-left">
+  <h3>With Javascript:</h3>
+  <h2>
+    <span id = "hour" > 00 </span>:
+    <span id = "minute" > 00 </span>:
+    <span id = "second" > 00 </span>:
+    <span id = "micro" > 00 </span>
+  </h2>
+  <button type="button" id="start" class="btn btn-success">Start</button>
+  <button type="button" id="resume" class="btn btn-info">Resume</button>
+  <button type="button" id="stop" class="btn btn-danger">Stop</button>
+</div>
+
+<div class="pull-right">
+  <h3>With Coffeescript:</h3>
+  <h2>
+    <span id = "chour" > 00 </span>:
+    <span id = "cminute" > 00 </span>:
+    <span id = "csecond" > 00 </span>:
+    <span id = "cmicro" > 00 </span>
+  </h2>
+  <button type="button" id="cstart" class="btn btn-success">Start</button>
+  <button type="button" id="cresume" class="btn btn-info">Resume</button>
+  <button type="button" id="cstop" class="btn btn-danger">Stop</button>
+</div>
